@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Solutions</title>
-  </head>
-  <body class="bg-gray-900">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Solutions</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(to bottom right, #111, #000);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    a.floating-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ec4899;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      transition: background 0.3s;
+    }
+    a.floating-button:hover {
+      background-color: #db2777;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 Bienvenido a AI Solutions</h1>
+  <p>Organiza tu fábrica, mejora tu presencia digital y automatiza procesos reales con nuestra solución inteligente.</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1qCpHHBrcS5v6NpegNQJhR9-IsbkJBQSvPym0sqsjqsZ0hQ/viewform?usp=dialog" class="floating-button" target="_blank">
+    Solicitar Demo
+  </a>
+</body>
 </html>
