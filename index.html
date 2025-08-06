@@ -1,147 +1,159 @@
+# Crear un index.html completo estático basado en el diseño original del componente React
+html_static = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Solutions</title>
+  <title>AI Solutions - IA visual y accesible</title>
   <style>
     body {
       margin: 0;
-      font-family: system-ui, sans-serif;
-      background: linear-gradient(to bottom right, #111, #000);
-      color: #fff;
-    }
-
-    header {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
-
-    .button {
-      background-color: #ec4899;
+      font-family: sans-serif;
+      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
       color: white;
-      padding: 1rem 2rem;
-      border-radius: 9999px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
     }
-
-    .button:hover {
-      background-color: #db2777;
-    }
-
     section {
-      padding: 4rem 2rem;
-      background: #0d0d0d;
+      padding: 4rem 1.5rem;
       text-align: center;
     }
-
-    section h2 {
-      font-size: 2rem;
-      color: #ec4899;
-      margin-bottom: 2rem;
+    h1, h2 {
+      font-weight: bold;
     }
-
     .grid {
       display: grid;
       gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      max-width: 1000px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
-
     .card {
-      background: #1a1a1a;
-      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(4px);
+      padding: 1.5rem;
       border-radius: 1rem;
-      border: 1px solid #333;
     }
-
-    .card h3 {
-      color: #ec4899;
-      margin-bottom: 1rem;
+    ul {
+      list-style: none;
+      padding: 0;
     }
-
-    .card p {
-      color: #ccc;
-      font-size: 0.95rem;
+    li {
+      margin: 0.5rem 0;
     }
-
-    .floating-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #ec4899;
+    button {
+      background: linear-gradient(to right, #ec4899, #8b5cf6);
       color: white;
-      padding: 1rem 1.5rem;
+      border: none;
+      padding: 1rem 2rem;
       border-radius: 9999px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-      transition: background 0.3s;
+      font-size: 1.125rem;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
-
-    .floating-button:hover {
-      background-color: #db2777;
+    button:hover {
+      transform: scale(1.05);
+    }
+    iframe {
+      border: none;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #d8b4fe;
+      padding: 2rem 1rem;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>🚀 Transforma tu fábrica con <span style="color:#f472b6;">IA</span></h1>
-    <p>Automatiza procesos, mejora la comunicación interna y proyecta una imagen moderna con AI Solutions.</p>
-    <a href="#beneficios" class="button">Descubre cómo</a>
-  </header>
-
-  <section id="beneficios">
-    <h2>🎯 Beneficios reales para tu fábrica</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>📦 Producción Ordenada</h3>
-        <p>Visualiza todos los pedidos por estación y paso con total claridad.</p>
-      </div>
-      <div class="card">
-        <h3>🤖 IA Integrada</h3>
-        <p>Asistentes que responden, resumen y ayudan a reducir errores humanos.</p>
-      </div>
-      <div class="card">
-        <h3>💰 Ahorro Económico</h3>
-        <p>Menos pérdidas por desorganización, menos dependencia del papel.</p>
-      </div>
+  <!-- HERO -->
+  <section>
+    <h1 style="font-size: 3rem;">IA que entiende, mejora y transforma</h1>
+    <p style="font-size: 1.25rem; color: #d1d5db;">Digitalización inteligente. Automatización visual. Estrategias conectadas con datos reales.</p>
+    <p style="color: #c084fc; max-width: 40rem; margin: 1.5rem auto 0;">En AI Solutions convertimos procesos complejos en experiencias simples, potentes y humanas.</p>
+    <div style="margin-top: 2.5rem; background-color: rgba(242, 24, 141, 0.9); padding: 1rem 2rem; border-radius: 1rem; display: inline-block;">
+      🚀 "Lo simple funciona: implementamos IA útil, visual y accesible para todos."
     </div>
   </section>
 
+  <!-- IMAGEN HISTORIA -->
   <section>
-    <h2>🌐 Presencia Digital Moderna</h2>
-    <p>Una fábrica moderna no solo produce bien, también se comunica bien.</p>
-    <p>AI Solutions combina automatización real con diseño web y marketing industrial.</p>
+    <h2 style="font-size: 2rem;">Nuestra historia en AI Solutions</h2>
+    <img src="./Nuestra Historia en AI Solutions (1).png" alt="Nuestra historia en AI Solutions" style="max-width: 48rem; border-radius: 0.75rem; box-shadow: 0 10px 20px rgba(0,0,0,0.5);" />
   </section>
 
-  <a
-    href="https://docs.google.com/forms/d/e/1FAIpQLSe1qCpHHBrcS5v6NpegNQJhR9-IsbkJBQSvPym0sqsjqsZ0hQ/viewform?usp=dialog"
-    class="floating-button"
-    target="_blank"
-  >
-    Solicitar Demo
-  </a>
+  <!-- PROBLEMAS Y SOLUCIONES -->
+  <section>
+    <h2 style="font-size: 2rem;">¿Qué resolvemos?</h2>
+    <div class="grid">
+      <div class="card" style="color: #f9a8d4;">
+        <ul>
+          <li>❌ Webs desordenadas o poco claras</li>
+          <li>❌ Procesos lentos o manuales</li>
+          <li>❌ Tareas repetitivas sin valor</li>
+          <li>❌ Equipos que no se comunican</li>
+          <li>❌ Marketing sin impacto real</li>
+        </ul>
+      </div>
+      <div class="card" style="color: #bbf7d0;">
+        <ul>
+          <li>✅ Webs claras, rápidas y que responden</li>
+          <li>✅ Automatización con lógica simple e IA</li>
+          <li>✅ Paneles visuales con todo a la vista</li>
+          <li>✅ IA que resume, sugiere y actúa</li>
+          <li>✅ Estrategias conectadas con tus datos</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top: 3rem; max-width: 50rem; margin-left: auto; margin-right: auto; color: #d1d5db;">
+      No hacemos magia, hacemos estructura: IA útil, visual, ligera y sin necesidad de formación avanzada. Creamos herramientas que podés usar hoy mismo, sin depender de nadie.
+    </p>
+  </section>
 
+  <!-- IMAGEN PLANTA -->
+  <section>
+    <img src="./ChatGPT Image 6 ago 2025, 02_31_04.png" alt="Pensado desde la planta" style="max-width: 32rem; border-radius: 0.75rem; box-shadow: 0 10px 20px rgba(0,0,0,0.5);" />
+  </section>
+
+  <!-- FORMULARIO -->
+  <section style="background-color: #1e1b34; border-top: 1px solid #2d2b45;">
+    <h2 style="font-size: 2rem;">¿Querés contarnos tu caso?</h2>
+    <p style="color: #c084fc; max-width: 30rem; margin: 0 auto 2rem;">Completá este formulario y veremos juntos cómo podemos ayudarte. Nos gustan los retos reales.</p>
+    <button onclick="toggleFormulario()">Abrir formulario</button>
+    <div id="formulario" style="display: none; max-width: 64rem; height: 1000px; margin: 2rem auto; border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSe1qCpHHBrcS5v6NpegNQJhR9-IsbkJBQSvPym0sqsjqsZ0hQ/viewform?embedded=true"
+        width="100%"
+        height="100%"
+        title="Formulario AI Solutions"
+      >
+        Cargando…
+      </iframe>
+    </div>
+  </section>
+
+  <!-- IMAGEN SERVICIO DIGITAL -->
+  <section>
+    <img src="./Servicio digital y consulta gratuita.png" alt="Consulta digital gratuita" style="max-width: 28rem; border-radius: 0.75rem; box-shadow: 0 10px 20px rgba(0,0,0,0.5);" />
+    <p style="margin-top: 1rem; font-size: 1.125rem; color: #fde68a; font-weight: bold;">¿Necesitás un servicio digital o web rápida? Te asesoramos sin compromiso.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    Hecho con respeto y visión por el equipo de AI Solutions. <br />
+    Creamos tecnología con impacto real, no solo ideas bonitas.
+  </footer>
+
+  <script>
+    function toggleFormulario() {
+      const form = document.getElementById('formulario');
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
 </body>
 </html>
+"""
+
+# Guardar el archivo
+final_index_path = "/mnt/data/index-landing-static.html"
+with open(final_index_path, "w", encoding="utf-8") as f:
+    f.write(html_static.strip())
+
+final_index_path
