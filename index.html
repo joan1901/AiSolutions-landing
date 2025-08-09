@@ -2,125 +2,152 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI Solutions - IA visual y accesible</title>
+
   <style>
+    :root { --gradA:#ec4899; --gradB:#8b5cf6; }
+
+    /* ===== Fondo oscuro + patrón de hexágonos ===== */
     body {
       margin: 0;
-      font-family: sans-serif;
-      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
-      color: white;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji', 'Segoe UI Symbol';
+      color: #fff;
+
+      /* 3 capas: 1) degradado principal, 2) glow naranja, 3) hexágonos SVG */
+      background:
+        radial-gradient(circle at 75% 0%, #1a0f1f 0%, #0b070d 60%) fixed,
+        radial-gradient(circle at 15% 20%, rgba(255,140,0,0.08), transparent 55%) fixed,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cpattern id='hex' width='20' height='17.32' patternUnits='userSpaceOnUse'%3E%3Cpolygon points='10,0 20,5.77 20,11.55 10,17.32 0,11.55 0,5.77' fill='none' stroke='%23ff8c00' stroke-width='0.6' opacity='0.18'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23hex)'/%3E%3C/svg%3E") repeat fixed;
+
+      background-size: cover, cover, 480px 480px;
+      animation: hex-drift 60s linear infinite;
     }
-    section {
-      padding: 4rem 1.5rem;
-      text-align: center;
+
+    @keyframes hex-drift {
+      0%   { background-position: center, center, 0 0; }
+      100% { background-position: center, center, 240px 240px; }
     }
-    h1, h2 {
-      font-weight: bold;
-    }
+
+    /* ===== Layout base ===== */
+    section { padding: 4rem 1.5rem; text-align: center; }
+    h1, h2 { font-weight: 800; line-height: 1.15; }
+
     .grid {
-      display: grid;
-      gap: 2rem;
+      display: grid; gap: 2rem;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
     .card {
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: rgba(255,255,255,0.05);
       backdrop-filter: blur(4px);
-      padding: 1.5rem;
-      border-radius: 1rem;
+      padding: 1.5rem; border-radius: 1rem;
     }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 0.5rem 0;
-    }
+    ul { list-style: none; padding: 0; margin: 0; }
+    li { margin: 0.5rem 0; }
+
     button {
-      background: linear-gradient(to right, #ec4899, #8b5cf6);
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 9999px;
-      font-size: 1.125rem;
-      cursor: pointer;
+      background: linear-gradient(to right, var(--gradA), var(--gradB));
+      color: white; border: none; padding: 1rem 2rem;
+      border-radius: 9999px; font-size: 1.125rem; cursor: pointer;
       transition: transform 0.2s;
     }
-    button:hover {
-      transform: scale(1.05);
-    }
-    iframe {
-      border: none;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.875rem;
-      color: #d8b4fe;
-      padding: 2rem 1rem;
-    }
-  .form-boton-flotante {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  background: linear-gradient(to right, #ec4899, #8b5cf6);
-  color: white;
-  font-size: 1.5rem;
-  padding: 0.8rem 1rem;
-  border-radius: 9999px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  text-decoration: none;
-  z-index: 9999;
-  transition: transform 0.2s ease;
-}
-.form-boton-flotante:hover {
-  transform: scale(1.1);
-}
-</style>
-</head><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6D1M0ZLM9T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    button:hover { transform: scale(1.05); }
 
-  gtag('config', 'G-6D1M0ZLM9T');
-</script>
-<!-- BOTÓN FLOTANTE DE CONTACTO -->
-<a
-  href="https://docs.google.com/forms/d/e/1FAIpQLSe1qCpHHBrcS5v6NpegNQJhR9-IsbkJBQSvPym0sqsjqsZ0hQ/viewform?usp=header"
-  class="form-boton-flotante"
-  target="_blank"
-  rel="noopener noreferrer"
-  title="Ir al formulario de contacto"
->
-  📬 Contáctanos
-</a>
+    /* ===== Imágenes responsive ===== */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    iframe { border: none; width: 100%; height: 100%; }
+
+    footer {
+      text-align: center; font-size: 0.9rem;
+      color: #d8b4fe; padding: 2rem 1rem;
+    }
+
+    /* ===== Botón flotante email ===== */
+    .form-boton-flotante {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      background: linear-gradient(to right, var(--gradA), var(--gradB));
+      color: #fff; font-size: 1rem; font-weight: 700;
+      padding: 0.75rem 1.25rem; border-radius: 9999px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      text-decoration: none; z-index: 9999;
+      transition: transform .2s ease, box-shadow .2s ease;
+      animation: pulseFloat 2.2s ease-in-out infinite;
+    }
+    .form-boton-flotante:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.6);
+    }
+    @keyframes pulseFloat {
+      0%   { transform: translateY(0) scale(1);   box-shadow: 0 4px 20px rgba(0,0,0,0.40); }
+      50%  { transform: translateY(-2px) scale(1.06); box-shadow: 0 8px 28px rgba(0,0,0,0.55); }
+      100% { transform: translateY(0) scale(1);   box-shadow: 0 4px 20px rgba(0,0,0,0.40); }
+    }
+
+    /* ===== Móvil ===== */
+    @media (max-width: 768px) {
+      section { padding: 2rem 1rem; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+    }
+
+    /* Accesibilidad: respeta usuarios que prefieren menos movimiento */
+    @media (prefers-reduced-motion: reduce) {
+      body, .form-boton-flotante { animation: none !important; }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6D1M0ZLM9T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-6D1M0ZLM9T');
+  </script>
+</head>
 <body>
+
+  <!-- Botón flotante de contacto (abre email) -->
+  <a
+    href="mailto:Contacto@a-i-solutions.org"
+    class="form-boton-flotante"
+    title="Escribir un correo a AI Solutions"
+  >📬 Escríbenos</a>
+
   <!-- HERO -->
   <section>
     <h1 style="font-size: 3rem;">IA que entiende, mejora y transforma</h1>
-    <p style="font-size: 1.25rem; color: #d1d5db;">Digitalización inteligente. Automatización visual. Estrategias conectadas con datos reales.</p>
-    <p style="color: #c084fc; max-width: 40rem; margin: 1.5rem auto 0;">En AI Solutions convertimos procesos complejos en experiencias simples, potentes y humanas.</p>
-    <div style="margin-top: 2.5rem; background-color: rgba(242, 24, 141, 0.9); padding: 1rem 2rem; border-radius: 1rem; display: inline-block;">
+    <p style="font-size: 1.25rem; color: #d1d5db;">
+      Digitalización inteligente. Automatización visual. Estrategias conectadas con datos reales.
+    </p>
+    <p style="color: #c084fc; max-width: 40rem; margin: 1.5rem auto 0;">
+      En AI Solutions convertimos procesos complejos en experiencias simples, potentes y humanas.
+    </p>
+    <div style="margin-top: 2.5rem; background-color: rgba(242,24,141,0.9); padding: 1rem 2rem; border-radius: 1rem; display: inline-block;">
       🚀 "Lo simple funciona: implementamos IA útil, visual y accesible para todos."
     </div>
   </section>
 
   <!-- HISTORIA -->
-  <section class="py-16 px-6 text-center">
-    <h2 class="text-4xl font-bold text-white mb-6">Nuestra historia en AI Solutions</h2>
+  <section>
+    <h2 class="text-4xl" style="margin-bottom:1.5rem;">Nuestra historia en AI Solutions</h2>
     <img
-      src="./Historia.png"
+      src="./Historia.png"  <!-- cambia a ./historia.png si la renombras -->
       alt="Nuestra historia en AI Solutions"
-      class="mx-auto rounded-lg shadow-xl max-w-3xl"
+      class="mx-auto" style="border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.5); max-width: 48rem;"
     />
   </section>
 
   <!-- PROBLEMAS Y SOLUCIONES -->
   <section>
-    <h2 style="font-size: 2rem;">¿Qué resolvemos?</h2>
+    <h2 style="font-size: 2rem; margin-bottom:1.5rem;">¿Qué resolvemos?</h2>
     <div class="grid">
-      <div class="card" style="color: #f9a8d4;">
+      <div class="card" style="color:#f9a8d4;">
         <ul>
           <li>❌ Webs desordenadas o poco claras</li>
           <li>❌ Procesos lentos o manuales</li>
@@ -129,7 +156,7 @@
           <li>❌ Marketing sin impacto real</li>
         </ul>
       </div>
-      <div class="card" style="color: #bbf7d0;">
+      <div class="card" style="color:#bbf7d0;">
         <ul>
           <li>✅ Webs claras, rápidas y que responden</li>
           <li>✅ Automatización con lógica simple e IA</li>
@@ -139,46 +166,44 @@
         </ul>
       </div>
     </div>
-    <p style="margin-top: 3rem; max-width: 50rem; margin-left: auto; margin-right: auto; color: #d1d5db;">
-      No hacemos magia, hacemos estructura: IA útil, visual, ligera y sin necesidad de formación avanzada. 
+    <p style="margin-top: 3rem; max-width: 50rem; margin-inline:auto; color:#d1d5db;">
+      No hacemos magia, hacemos estructura: IA útil, visual, ligera y sin necesidad de formación avanzada.
       Creamos herramientas que puedes usar hoy mismo, sin depender de nadie.
     </p>
   </section>
 
   <!-- IMAGEN PLANTA -->
-  <section class="py-16 px-6 text-center">
+  <section>
     <img
       src="./planta.png"
       alt="Pensado desde la planta"
-      class="mx-auto rounded-xl shadow-xl max-w-2xl"
+      style="margin-inline:auto; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.5); max-width: 32rem;"
     />
   </section>
 
-  <!-- FORMULARIO -->
-  <section style="background-color: #1e1b34; border-top: 1px solid #2d2b45;">
+  <!-- FORMULARIO EMBEBIDO -->
+  <section style="background-color:#1e1b34; border-top:1px solid #2d2b45;">
     <h2 style="font-size: 2rem;">¿Quieres contarnos tu caso?</h2>
-    <p style="color: #c084fc; max-width: 30rem; margin: 0 auto 2rem;">Completa este formulario y veremos juntos cómo podemos ayudarte. Nos gustan los retos reales.</p>
+    <p style="color:#c084fc; max-width:30rem; margin:0 auto 2rem;">
+      Completa este formulario y veremos juntos cómo podemos ayudarte. Nos gustan los retos reales.
+    </p>
     <button onclick="toggleFormulario()">Abrir formulario</button>
-    <div id="formulario" style="display: none; max-width: 64rem; height: 1000px; margin: 2rem auto; border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+    <div id="formulario" style="display:none; max-width:64rem; height:1000px; margin:2rem auto; border-radius:1rem; overflow:hidden; box-shadow:0 10px 20px rgba(0,0,0,.5);">
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSe1qCpHHBrcS5v6NpegNQJhR9-IsbkJBQSvPym0sqsjqsZ0hQ/viewform?embedded=true"
-        width="100%"
-        height="100%"
         title="Formulario AI Solutions"
-      >
-        Cargando…
-      </iframe>
+      >Cargando…</iframe>
     </div>
   </section>
 
   <!-- SERVICIO DIGITAL -->
-  <section class="py-16 px-6 text-center">
+  <section>
     <img
-      src="./Servicio digital.png"
+      src="./Servicio digital.png"  <!-- cambia a ./servicio-digital.png si la renombras -->
       alt="Consulta digital gratuita"
-      class="mx-auto rounded-lg shadow-lg max-w-xl"
+      style="margin-inline:auto; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.5); max-width: 28rem;"
     />
-    <p class="mt-4 text-lg text-yellow-300 font-semibold">
+    <p style="margin-top:1rem; font-size:1.125rem; color:#fde68a; font-weight:700;">
       ¿Necesitas un servicio digital o web rápida? Te asesoramos sin compromiso.
     </p>
   </section>
@@ -195,7 +220,5 @@
       form.style.display = form.style.display === 'none' ? 'block' : 'none';
     }
   </script>
-
-</a>
 </body>
 </html>
