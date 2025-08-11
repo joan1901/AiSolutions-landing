@@ -49,23 +49,28 @@
     }
     button:hover{ transform:scale(1.05); }
 
-    /* ===== Imágenes responsive centradas estilo “tarjeta” ===== */
-    .img-card{
-      display:block; margin:0 auto;
-      max-width:100%; height:auto;
-      border-radius:12px;
-      box-shadow:0 10px 20px rgba(0,0,0,.5);
-    }
-    .img-card--sm{ max-width:28rem; }
-    .img-card--md{ max-width:32rem; }
-    .img-card--lg{ max-width:48rem; }
+    /* ===== Imágenes responsive y centradas ===== */
+.img-card{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  height:auto;
+  /* fuerza centrado y tamaño controlado en todos los navegadores */
+  width: min(100%, var(--img-max, 100%));
+  border-radius:12px;
+  box-shadow:0 10px 20px rgba(0,0,0,.5);
+}
 
-    iframe{ border:none; width:100%; height:100%; }
+/* tamaños máximos declarativos por variante */
+.img-card--lg{ --img-max: 48rem; }
+.img-card--md{ --img-max: 32rem; }
+.img-card--sm{ --img-max: 28rem; }
 
-    footer{
-      text-align:center; font-size:.9rem;
-      color:#d8b4fe; padding:2rem 1rem;
-    }
+/* seguridad extra en móvil: que nunca se peguen a los bordes */
+@media (max-width: 768px){
+  .img-card{ width: min(100%, 36rem); } /* opcional: limita un poco en tablets chicas */
+  section{ padding-left:1rem; padding-right:1rem; }
+}
 
     /* ===== Botón flotante email ===== */
     .form-boton-flotante{
